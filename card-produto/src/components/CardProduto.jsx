@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import styled from "styled-components";
 
 /*
@@ -79,7 +80,7 @@ export function CardProduto() {
   return (
     <Card>
       <Imagem
-        src="https://images.unsplash.com/photo-1585386959984-a41552231692"
+        src="h="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='180'%3E%3Crect fill='%23e0e0e0' width='280' height='180'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23999' text-anchor='middle' dy='.3em'%3EFone Bluetooth%3C/text%3E%3C/svg%3E      
         alt="Produto"
       />
 

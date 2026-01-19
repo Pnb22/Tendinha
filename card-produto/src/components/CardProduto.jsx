@@ -14,7 +14,7 @@ export function CardProduto() {
         />
         <div className="card-content">
           <h2 className="product-name">Fone Bluetooth Premium</h2>
-          <p className="product-price">R$ 199,90</p>
+          <p className="product-price">R$ 39,90</p>
           <button
             className={`product-button ${adicionado ? 'added' : ''}`}
             onClick={() => setAdicionado(!adicionado)}

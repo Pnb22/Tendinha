@@ -2,14 +2,35 @@ import { useState } from "react";
 import styled from "styled-components";
 
 /*
-  Container principal do card
+  Card principal do produto
 */
 const Card = styled.div`
-  width: 250px;
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  width: 280px;
   background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+/*
+  Imagem do produto
+*/
+const Imagem = styled.img`
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+`;
+
+/*
+  Conteúdo do card
+*/
+const Conteudo = styled.div`
+  padding: 16px;
 `;
 
 /*
@@ -21,31 +42,34 @@ const NomeProduto = styled.h2`
 `;
 
 /*
-  Preço do produto
+  Preço
 */
 const Preco = styled.p`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  color: #198754;
   margin-bottom: 16px;
 `;
 
 /*
   Botão com estilização dinâmica
-  A cor muda conforme a prop "adicionado"
 */
 const Botao = styled.button`
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 15px;
   cursor: pointer;
   color: #fff;
 
   background-color: ${(props) =>
     props.adicionado ? "#198754" : "#6c757d"};
 
+  transition: background-color 0.3s, transform 0.2s;
+
   &:hover {
-    opacity: 0.9;
+    transform: scale(1.02);
   }
 `;
 
@@ -54,15 +78,22 @@ export function CardProduto() {
 
   return (
     <Card>
-      <NomeProduto>Fone de Ouvido Bluetooth</NomeProduto>
-      <Preco>R$ 199,90</Preco>
+      <Imagem
+        src="https://images.unsplash.com/photo-1585386959984-a41552231692"
+        alt="Produto"
+      />
 
-      <Botao
-        adicionado={adicionado}
-        onClick={() => setAdicionado(!adicionado)}
-      >
-        {adicionado ? "Adicionado" : "Adicionar ao carrinho"}
-      </Botao>
+      <Conteudo>
+        <NomeProduto>Fone Bluetooth Premium</NomeProduto>
+        <Preco>R$ 199,90</Preco>
+
+        <Botao
+          adicionado={adicionado}
+          onClick={() => setAdicionado(!adicionado)}
+        >
+          {adicionado ? "Adicionado ao carrinho" : "Adicionar ao carrinho"}
+        </Botao>
+      </Conteudo>
     </Card>
   );
 }
